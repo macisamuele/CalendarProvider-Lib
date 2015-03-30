@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'bintray-release'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+publish {
+    userOrg = 'macisamuele'
+    groupId = 'it.macisamuele'
+    artifactId = 'calendarprovider-lib'
+    version = '0.0.1'
+    description = 'Utility library for the easy use of calendar\'s and event\'s on Android'
+    website = 'https://github.com/macisamuele/CalendarProvider-Lib'
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
+}
